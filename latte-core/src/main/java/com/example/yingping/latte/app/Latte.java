@@ -5,8 +5,10 @@ package com.example.yingping.latte.app;
  */
 
 import android.content.Context;
+import android.net.wifi.aware.PublishConfig;
 
-import java.util.WeakHashMap;
+import java.security.PublicKey;
+import java.util.HashMap;
 
 public  final class Latte {
      public static Configurator init(Context context){
@@ -14,7 +16,11 @@ public  final class Latte {
 
         return Configurator.getInstance();
      }
-    private static  WeakHashMap<String,Object> getConfigurations(){
+    public static HashMap<String,Object> getConfigurations(){
         return Configurator.getInstance().getLatteConfigs();
+    }
+
+    public static Context getApplication(){
+        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 }
