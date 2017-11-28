@@ -10,6 +10,7 @@ import com.diabin.latte.activities.ProxyActivity;
 
 import com.diabin.latte.delegates.LatteDelegate;
 import com.diabin.latte.ec.launcher.LauncherDelegate;
+import com.diabin.latte.ec.main.EcBottomDelegate;
 import com.diabin.latte.ec.sign.ISignListener;
 import com.diabin.latte.ec.sign.SignInDelegate;
 import com.diabin.latte.ec.sign.SignUpDelegate;
@@ -50,6 +51,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener,ILau
         switch(tag){
             case SIGNED:
                 Toast.makeText(this,"用户登录了",Toast.LENGTH_LONG).show();
+                startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this,"用户没登录",Toast.LENGTH_LONG).show();
