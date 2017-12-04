@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -42,21 +43,27 @@ public class IndexDelegate extends BottomItemDelegate {
     AppCompatEditText mSearchView = null;
 
     private RefreshHandler mRefreshHandler = null;
-    private  void initRefeshLayout(){
+//下拉刷新样式
+    private void initRefeshLayout() {
         mRefreshLayout.setColorSchemeResources(
                 android.R.color.holo_blue_bright,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light
         );
-        mRefreshLayout.setProgressViewOffset(true,120,300);
+        mRefreshLayout.setProgressViewOffset(true, 120, 300);
     }
-
+//
+    private  void initRecyclerView(){
+        final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
+        mRecyclerView.setLayoutManager(manager);
+    }
 
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefeshLayout();
-//        mRefreshHandler.firstPage("http://114.67.235.114/RestServer/api/");
+        initRecyclerView();
+        mRefreshHandler.firstPage("http://114.67.235.114/RestServer/api/");
 
     }
 
@@ -67,23 +74,7 @@ public class IndexDelegate extends BottomItemDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        mRefreshHandler = new RefreshHandler(mRefreshLayout);
-        RestClient.builder()
-                .url("http://114.67.235.114/RestServer/api/")
-                .success(new ISuccess() {
-                    @Override
-                    public void onSuccess(String response) {
-//
-                        final IndexDataConverter converter = new IndexDataConverter();
+        mRefreshHandler = RefreshHandler.create(mRefreshLayout, mRecyclerView, new IndexDataConverter());
 
-                        converter.setJsonData(response);
-//
-                        final ArrayList<MultipleItemEntity> list =  converter.convert();
-                        final String image = list.get(1).getField(MultipleFields.IMAGE_URL);
-                        Toast.makeText(getContext(),image,Toast.LENGTH_LONG).show();
-                    }
-                })
-                .build()
-                .get();
     }
 }
