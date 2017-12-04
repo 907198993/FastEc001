@@ -3,17 +3,12 @@ package com.diabin.latte.net.rx;
 import android.content.Context;
 
 
-import com.diabin.latte.net.HttpMethod;
-import com.diabin.latte.net.RestCreator;
-import com.diabin.latte.ui.LatteLoader;
-import com.diabin.latte.ui.LoaderStyle;
+import com.diabin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;
 
 import io.reactivex.Observable;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 

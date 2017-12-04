@@ -1,4 +1,4 @@
-package com.diabin.latte.ui;
+package com.diabin.latte.ui.loader;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatDialog;
@@ -23,7 +23,7 @@ public class LatteLoader {
 
     private static final ArrayList<AppCompatDialog> LOADERS=new ArrayList<>();
 
-    private static final String DEFAULT_LOADER=LoaderStyle.BallClipRotatePulseIndicator.name();
+    private static final String DEFAULT_LOADER= LoaderStyle.BallClipRotatePulseIndicator.name();
 
     public static void showLoading(Context context,Enum<LoaderStyle> type){
         showLoading(context,type.name());
@@ -33,7 +33,7 @@ public class LatteLoader {
 
         final AppCompatDialog dialog =new AppCompatDialog(context, R.style.dialog);
 
-        final AVLoadingIndicatorView avLoadingIndicatorView=LoaderCreator.create(type,context);
+        final AVLoadingIndicatorView avLoadingIndicatorView= LoaderCreator.create(type,context);
         dialog.setContentView(avLoadingIndicatorView);
 
         int deviceWidth= DimenUtil.getScreenWidth();

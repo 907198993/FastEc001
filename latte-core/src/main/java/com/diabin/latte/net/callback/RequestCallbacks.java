@@ -2,8 +2,8 @@ package com.diabin.latte.net.callback;
 
 import android.os.Handler;
 
-import com.diabin.latte.ui.LatteLoader;
-import com.diabin.latte.ui.LoaderStyle;
+import com.diabin.latte.ui.loader.LatteLoader;
+import com.diabin.latte.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;

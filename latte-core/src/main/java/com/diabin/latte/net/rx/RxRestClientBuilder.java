@@ -3,7 +3,7 @@ package com.diabin.latte.net.rx;
 import android.content.Context;
 
 
-import com.diabin.latte.ui.LoaderStyle;
+import com.diabin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

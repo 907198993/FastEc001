@@ -8,8 +8,8 @@ import com.diabin.latte.net.callback.IRequest;
 import com.diabin.latte.net.callback.ISuccess;
 import com.diabin.latte.net.callback.RequestCallbacks;
 import com.diabin.latte.net.download.DownloadHandler;
-import com.diabin.latte.ui.LatteLoader;
-import com.diabin.latte.ui.LoaderStyle;
+import com.diabin.latte.ui.loader.LatteLoader;
+import com.diabin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

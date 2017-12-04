@@ -1,4 +1,4 @@
-package com.diabin.latte.ui;
+package com.diabin.latte.ui.loader;
 
 import android.content.Context;
 
